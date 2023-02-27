@@ -9,8 +9,8 @@ All comments are welcome at luc.duponcheel[at]gmail.com.
 In lesson 003 we have defined some `trait Program` members in terms of `trait Computation` members.
 
 In this lesson we define some `trait Program` members in terms of function level `trait Product` members some in
-terms of `trait Computation` members and some in terms of both function level `trait Product` members and
-`trait Computation` members.
+terms of `trait Computation` members and some in terms of both `trait Computation` members and function level
+`trait Product` members.
 
 Below the, yet to be defined, declared `trait` members so far are briefly repeated.
 
@@ -70,7 +70,7 @@ private[psbp] trait Product[&&[+_, +_]]:
   private[psbp] def unfoldProduct[Z, Y, X]: (Z => Y) => (Z => X) => (Z => (Y && X))
 ```
 
-### Implementing `Function` in terms of function level `Product` and `Computation`
+### Implementing `Function` in terms of `Computation` and function level `Product`
 
 ```scala
 package psbp.implementation.function
