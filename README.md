@@ -8,7 +8,7 @@ All comments are welcome at luc.duponcheel[at]gmail.com.
 
 In lesson 003 we have defined some `trait Program` members in terms of `trait Computation` members.
 
-In this lesson we define some `trait Program` members in terms of function level `trait Product` members some in
+In this lesson we define some `trait Program` members in terms of function level `trait Product` members, some in
 terms of `trait Computation` members and some in terms of both `trait Computation` members and function level
 `trait Product` members.
 
@@ -241,8 +241,7 @@ private[psbp] trait Product[
   // ...
 ```
 
-### Implementing `Product` in terms of function level `Product`
-
+### Implementing `Product` in terms of `Computation` and function level `Product`
 
 ```scala
 package psbp.implementation.dataStructure
