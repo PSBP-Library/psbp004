@@ -116,7 +116,7 @@ private[psbp] trait Function[
       `z&&y` =>
         `(z&&y)=>c[z]`(`z&&y`) >= { z =>
           `(z&&y)=>c[y]`(`z&&y`) >= { y =>
-            expressionLift(`tuple2[z,y]=>x`((z, y)))
+            expressionLift(`tuple2[z,y]=>x`(z, y))
           }
         }
 
@@ -127,7 +127,7 @@ private[psbp] trait Function[
         `(z&&y&&x)=>c[z]`(`z&&y&&x`) >= { z =>
           `(z&&y&&x)=>c[y]`(`z&&y&&x`) >= { y =>
             `(z&&y&&x)=>c[x]`(`z&&y&&x`) >= { x =>
-              expressionLift(`tuple3[z,y,x]=>w`((z, y, x)))
+              expressionLift(`tuple3[z,y,x]=>w`(z, y, x))
             }
           }
         }        
