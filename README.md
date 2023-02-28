@@ -20,6 +20,10 @@ private[psbp] trait Function[>-->[-_, +_], &&[+_, +_]]:
   // external declared
 
   def functionFromTuple2Lift[Z, Y, X]: (Tuple2[Z, Y] => X) => ((Z && Y) >--> X)
+
+  def functionFromTuple3Lift[Z, Y, X, W]: (Tuple3[Z, Y, X] => W) => ((Z && Y && X) >--> W)
+
+  // ...  
 ```
 
 and
@@ -115,6 +119,18 @@ private[psbp] trait Function[
             expressionLift(`tuple2[z,y]=>x`((z, y)))
           }
         }
+
+  override def functionFromTuple3Lift[Z, Y, X, W]
+      : (Tuple3[Z, Y, X] => W) => ((Z && Y && X) => C[W]) =
+    `tuple3[z,y,x]=>w` =>
+      `z&&y&&x` =>
+        `(z&&y&&x)=>c[z]`(`z&&y&&x`) >= { z =>
+          `(z&&y&&x)=>c[y]`(`z&&y&&x`) >= { y =>
+            `(z&&y&&x)=>c[x]`(`z&&y&&x`) >= { x =>
+              expressionLift(`tuple3[z,y,x]=>w`((z, y, x)))
+            }
+          }
+        }        
 ```
 
 ### Updating `Product`
