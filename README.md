@@ -269,8 +269,8 @@ private[psbp] trait Product[
     C[+_]: Computation
          : [C[+_]] =>> SequentialComposition[[Z, Y] =>> Z => C[Y]]
          : [C[+_]] =>> Function[[Z, Y] =>> Z => C[Y], &&], 
-    &&[+_, +_]: psbp.specification.Product]
-    extends psbp.specification.dataStructure.Product[[Z, Y] =>> Z => C[Y], &&]:
+    &&[+_, +_]: psbp.specification.Product
+] extends psbp.specification.dataStructure.Product[[Z, Y] =>> Z => C[Y], &&]:
 
   private lazy val summonedComputation = summon[Computation[C]]
 
